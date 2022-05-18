@@ -1,0 +1,13 @@
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Projeto ignore
+c02_Analise_Descritiva_dos_Dados_HI.ipynb
+c03_Feature_Engineering_HI.ipynb
+c04_Exploratory_Data_Analysis_HI.ipynb
+c05_Preparacao_Dados_HI.ipynb
+c06_Selecao_Atributos_HI.ipynb
+c07_Treinamento_Algoritmos_Machine_Learning_HI.ipynb
+c08_Fine_Tunning.ipynb
+Desfazer os outputs do jupyter.rtf
+.git/
