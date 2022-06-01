@@ -86,7 +86,7 @@ o time de produtos da empresa.
 |Response | 0, o cliente não tem interesse e 1, o cliente tem interesse.|
 
 
-## 5. Principais Insights
+## 5. principais Insights
 
 **Hipótese 1**
 
