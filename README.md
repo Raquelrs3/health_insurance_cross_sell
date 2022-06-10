@@ -86,14 +86,17 @@ o time de produtos da empresa.
 ## 5. Principais Insights
 
 **Hipótese 1-** Grande parte dos clientes já possuem seguro veicular. Resposta: Falsa, o número de pessoas que possuem e não possuem seguro veicular é muito próxima (175000 possuem x 160000 não possuem)
+
 ![Hipotese 1](https://user-images.githubusercontent.com/98356094/172991420-dc8172eb-0562-481f-b5e1-3abbe4b95c72.png)
 
 
 **Hipótese 2-** Donos de carros com mais de 2 anos fazem menos seguro veicular. Resposta: Verdadeira, foi constatado que quanto mais novos os carros maior a quantidade de assinaturas com seguro veicular.
+
 ![Hipotese 2](https://user-images.githubusercontent.com/98356094/172991461-08df47b4-8c6c-4c9c-a08f-ac677c0fa3fd.png)
 
 
 **Hipótese 3-** Quem não possui seguro veicular é mais sucetível a adiquirir seguro veicular. Resposta: Verdadeira, a pesquisa feita entre os clientes demonstra que aqueles que não possuem seguro veicular estão mais propensos a adquirir o seguro de carro.
+
 ![Hipotese 3](https://user-images.githubusercontent.com/98356094/172991481-07f2af87-55be-4387-82b1-e244ae2b7436.png)
 
 
