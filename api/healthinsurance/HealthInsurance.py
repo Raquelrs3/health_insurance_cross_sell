@@ -1,8 +1,9 @@
 import pickle
 import numpy  as np
 import pandas as pd
+import inflection
 
-class HealthInsurance: #por padrão se escreve em termo case
+class HealthInsurance(object): #por padrão se escreve em termo case
     def __init__(self): #construtor e nos parenteses os ponteiros da classe, para acessar a classe
         self.home_path = '/Users/raquelrocha/Documents/ProjetosComunidadeDS/Health_Insurance_Cross_Sell_Prediction/' # Caminho para onde o modelo está salvo, os .pkl (os caminhos dão acesso as variáveis)
         self.annual_premium_scaler = pickle.load( open( self.home_path + 'features/annual_premium_scaler.pkl', 'rb' ) ) #caminhos para os pickle (que são as transformações)
@@ -14,7 +15,7 @@ class HealthInsurance: #por padrão se escreve em termo case
         
         
 
-    def data_cleaning(df1):
+    def data_cleaning(self,df1):
         # 1.0 Descrição dos Dados¶
 
         ## 1.1 Rename Columns
@@ -37,7 +38,7 @@ class HealthInsurance: #por padrão se escreve em termo case
     
     
     
-    def feature_engineering(df2):
+    def feature_engineering(self,df2):
 
 
         ### 2.4 Feature Engineering
@@ -59,7 +60,7 @@ class HealthInsurance: #por padrão se escreve em termo case
     
 
     
-    def data_preparation(df5):
+    def data_preparation(self,df5):
 
         # 5.0 Data Preparation
 
@@ -111,7 +112,7 @@ class HealthInsurance: #por padrão se escreve em termo case
         pred = model.predict_proba(test_data)
         
         #Join Prediction to original_data
-        original_data["prediction"] = pred
+        original_data["score"] = pred[:,1].tolist()
         
-        return original_data.to_json (orient= 'records', data_format='iso')
+        return original_data.to_json(orient= 'records', date_format='iso')
 

@@ -6,7 +6,7 @@ Este é um projeto realizado com dados públicos disponibilizados pela empresa n
 
 
 ## 1. Problema de Negócio
-Nosso cliente, uma Seguradora que fornece Seguro Saúde para seus clientes, têm interesse em oferecer aos seus segurados seguro de veículos. Diante disso, precisam de uma solução para prever se seus clientes do ano passado terão interesse no seguro veicular fornecido pela empresa.
+Nosso cliente, uma Seguradora que fornece Seguro Saúde para seus clientes, têm interesse em oferecer aos seus segurados seguro de veículos. Diante disso, precisam de uma solução para prever se seus clientes do ano passado terão interesse no seguro veicular fornecido pela empresa, levando em consideração o recurso humano limitado que possuem, com um número de time de vendas com capacidade em realizar apenas 20 mil ligações no período da campanha.
 
 ## 2. Entendimento do Negócio
 #### Motivação
@@ -61,7 +61,7 @@ o time de produtos da empresa.
 ##### Passo 10 - Deploy do modelo em produção: Publicação em um ambiente de nuvem. Foi escolhida a plataforma Heroku.
 
 
-##### Passo 11 - Planilha Google: foi desenvolvida uma planilha na plataforma do Google que permite ao usuário listar os novos clientes, e ao solicitar a predição, a planilha utilizará do modelo em produção e fará o ranking dos clientes através do seu resultado de "score".
+##### Passo 11 - Planilha Google: desenvolver uma planilha na plataforma do Google que permite ao usuário listar os novos clientes, e ao solicitar a predição, a planilha utilizará do modelo em produção e fará o ranking dos clientes através do seu resultado de "score".
 
 
 ## 4. Entendendo os Dados
@@ -113,8 +113,8 @@ Para a realização desta etapa do projeto, foram aplicados os seguintes modelos
 
 Foi possível produzir um modelo os seguintes resultados de métricas calculadas:
 
-Precision @K: x.xxxx (proporção de itens recomendados no conjunto top-k)
-Recall @K: x.xxxx (proporção de itens relevantes encontrados nas recomendações top-k)
+Precision @K: 0.3529 (proporção de itens recomendados no conjunto top-k)
+Recall @K: 0.0019 (proporção de itens relevantes encontrados nas recomendações top-k)
 
 
 ### Comparação da performance dos modelos
@@ -131,6 +131,18 @@ Recall @K: x.xxxx (proporção de itens relevantes encontrados nas recomendaçõ
 
 ## 7. Resultado Final
 
+Descobrimos 9.340 possíveis clientes interessados em seguros de veículos, entre os 76.220 clientes em sua base de dados. Um total de 12,25%.
+O ticket médio para um seguro de saúde anual da Insurance All é: R$31.669,00.
+
+**Alcance com 20.000 ligações:**
+
+* Com 20.000 ligações, o que representa 15,74% do conjunto dos dados, observamos que 42,5% dos clientes interessados em adiquirir o novo produto;
+
+* O resultado foi 2,5x melhor do que o resultado aleatório.
+
 
 ## - Conclusão
 
+Foi constatado que por meio da técnica Learning to Rank e das métricas top K, foi possível alcançar o objetivo em ranquear, com prioridade, àquelas pessoas que estão mais sujeitas a se interessar pelo novo porduto (seguro veicular) que a empresa deseja em ofertar para sua base de clientes.
+
+Dessa forma, entregamos a Insurance All uma vantagem competitiva frente aos seus concorrentes ao reduzir o custo de aquisição de clientes (CAC) e ainda aumentar o faturamento.

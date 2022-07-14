@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 from flask             import Flask, request, Response
@@ -6,7 +7,7 @@ from healthinsurance.HealthInsurance import HealthInsurance
 # Loading 
 
 #Ver como vai ficar o caminho (tem que fazer isso aqui ainda)
-path = '/Users/raquelrocha/Documents/ProjetosComunidadeDS/Health_Insurance_Cross_Sell_Prediction/'
+path = '/Users/raquelrocha/Documents/ProjetosComunidadeDS/Health_Insurance_Cross_Sell_Prediction'
 model = pickle.load( open('/Users/raquelrocha/Documents/ProjetosComunidadeDS/Health_Insurance_Cross_Sell_Prediction/model/model_health_insurance.pkl', 'rb' ) )
 #model = pickle.load(open("/Users/raquelrocha/Documents/ProjetosComunidadeDS/DSProducao/model/model_rossmann2.pkl","rb"))
 
@@ -16,7 +17,6 @@ app = Flask(__name__)
 @app.route("/predict", methods = ["POST"]) # pode ser Post(recebe metodos que envia algum dado para receber) ou Get( pede alguma coisa)
 def health_insurance_predict():
     test_json = request.get_json()
-    
     if test_json: #se tem dados
         if isinstance (test_json, dict): #uma linha só se for dicionário, mais de uma linha se for json 
             test_raw = pd.DataFrame (test_json, index = [0]) #dados de teste
@@ -45,5 +45,6 @@ def health_insurance_predict():
         return Response("{}", status = 200, minetype = "application/json")
     
 if __name__ == "__main__":
-    app.run("0.0.0.0", debug=True)
+    port = os.environ.get('PORT',5000)
+    app.run(host="0.0.0.0", port=port)
     
