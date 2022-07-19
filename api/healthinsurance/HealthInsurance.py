@@ -22,7 +22,7 @@ class HealthInsurance(object): #por padrão se escreve em termo case
 
         cols_old = ['id', 'Gender', 'Age', 'Driving_License', 'Region_Code',
                     'Previously_Insured', 'Vehicle_Age', 'Vehicle_Damage', 'Annual_Premium',
-                    'Policy_Sales_Channel', 'Vintage', 'Response', ]
+                    'Policy_Sales_Channel', 'Vintage' ]
         #response_y
         #Colocar em letra minúscula e snakecase
         snakecase = lambda x: inflection.underscore (x)
@@ -99,6 +99,7 @@ class HealthInsurance(object): #por padrão se escreve em termo case
 
         #policy_sales_channel - Frequency Encoding
         df5.loc[:, "policy_sales_channel"] = df5["policy_sales_channel"].map(self.fe_policy_sales_channel_scaler) #(p.s aqui mudamos o nome para o nome do pickle feito)
+        df5 = df5.fillna( 0 )
 
 
         # 6.0 Feature Selection
@@ -108,9 +109,10 @@ class HealthInsurance(object): #por padrão se escreve em termo case
         return df5[cols_selected]
     
     def get_prediction(self,  model, original_data, test_data):
+
         # model prediction
         pred = model.predict_proba(test_data)
-        
+
         #Join Prediction to original_data
         original_data["score"] = pred[:,1].tolist()
         
